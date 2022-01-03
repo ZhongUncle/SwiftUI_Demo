@@ -55,6 +55,19 @@ struct ContentView: View {
                             Text("Blur")
                         })
                             .padding(.horizontal)
+                        Button(action: {
+                            image = colorInvertFilter(inputImage: image)
+                        }, label: {
+                            Text("Invert")
+                        })
+                            .padding(.horizontal)
+                        Button(action: {
+                            image = colorPosterizeFilter(inputImage: image)
+                        }, label: {
+                            Text("Posterize")
+                        })
+                            .padding(.horizontal)
+                        
                     }
                 }
             }
