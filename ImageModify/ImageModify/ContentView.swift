@@ -39,7 +39,8 @@ struct ContentView: View {
             
             VStack(alignment: .leading) {
                 Text("Filter")
-                    .padding()
+                    .font(.title)
+                    .padding(.horizontal)
                 ScrollView(.horizontal) {
                     HStack{
                         Button(action: {
