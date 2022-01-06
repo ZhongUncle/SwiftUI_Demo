@@ -1,14 +1,14 @@
 //
-//  DeviceApp.swift
-//  Device
+//  DeviceInfoApp.swift
+//  DeviceInfo
 //
-//  Created by 钟宜江 on 2021/4/2.
+//  Created by 钟宜江 on 2022/1/6.
 //
 
 import SwiftUI
 
 @main
-struct DeviceApp: App {
+struct DeviceInfoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
