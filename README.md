@@ -2,7 +2,13 @@
 This repository show demos of some kinds of iOS/iPadOS app, all made by myself.
 
 # List of Demos
-The list of Demos show the functions and feature.
+For convenient, there is a list of Demos in order.
+1. ***ImageModify:*** About how to add filiter to image.
+2. ***DeviceInfo:*** About how to access information of device.
+3. ***OperateDeviceFunctions:*** About how to control some device's functiions.
+
+# Demos Info
+
 ## ImageModify
 This demo is a simple demo to get image from system album or photo from camera (using system camera), apply some fliters, save to system ablum, or reset the changded image. The screen like below.
 
