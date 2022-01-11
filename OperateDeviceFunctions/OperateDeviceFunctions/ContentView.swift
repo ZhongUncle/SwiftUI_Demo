@@ -7,35 +7,25 @@
 
 import SwiftUI
 
-import MediaPlayer
-
-class RealTimeValues: ObservableObject{
-    @Published var brightness: CGFloat = UIScreen.main.brightness
-    /* Need import MediaPlayer */
-    @Published var volume: Float = AVAudioSession.sharedInstance().outputVolume
-}
-
-extension MPVolumeView {
-    static func setVolume(_ volume: Float) {
-        let volumeView = MPVolumeView()
-        let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
-    }
-}
-
 struct ContentView: View {
-    @ObservedObject var realTimeValues = RealTimeValues()
+    
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Change")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding([.top, .bottom, .trailing])
             //Change brightness of screen
             ChangeBrightnessView()
-            VStack {
-                Text("Change the volume")
-                Slider(value: $realTimeValues.volume)
-                    .onChange(of: realTimeValues.volume) { newValue in
-                        MPVolumeView().subviews.first
-                    }
-            }
+            
+            //Change volume of output
+            ChangeVolumeView()
+            
+            Text("Torch")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding([.top, .bottom, .trailing])
             //Open or close the torch
             TorchView()
             

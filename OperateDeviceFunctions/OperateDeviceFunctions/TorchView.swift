@@ -38,6 +38,7 @@ struct TorchView: View {
         Button(action: {
             torched = !torched
             openTorch(on: torched)
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         }) {
             ZStack {
                 Circle()
