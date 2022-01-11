@@ -13,3 +13,7 @@ This demo show you some informations about the device, such as name, IP address,
 
 ![截屏2022-01-06 上午11 35 29](https://user-images.githubusercontent.com/78771985/148631123-521afd76-baea-4ad6-9ec8-7553fd654da7.jpeg)
 
+## OperateDeviceFunctions
+This demo show you how to control some functions of device, like brightness, volume, haptic and etc. The screen like below.
+
+![截屏2022-01-11 下午3 25 06](https://user-images.githubusercontent.com/78771985/148899389-54e88e7d-5ff2-45b6-803f-d2217ea80ce5.png)
