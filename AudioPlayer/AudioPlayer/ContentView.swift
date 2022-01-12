@@ -22,6 +22,7 @@ struct ContentView: View {
                 Spacer()
                 
                 MusicCoverView()
+                
                 Text("\(audioGobalVaribles.audioName)")
                     .font(.title)
                     .fontWeight(.bold)

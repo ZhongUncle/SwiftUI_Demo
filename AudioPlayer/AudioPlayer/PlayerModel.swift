@@ -8,12 +8,18 @@
 import Foundation
 import AVFoundation
 
+let playlist: [String] = ["马马嘟嘟骑", "Snow-Red Hot Chilli Pepper"]
+
+let player = AVPlayer()
+
 class AudioGobalVaribles: ObservableObject {
     @Published var audioName: String = playlist[0]
     @Published var audioType: String = "m4a"
     @Published var audioCreater: String = "Unknown"
     @Published var isPlaying: Bool = false
     @Published var playValue: TimeInterval = 0.0
+    @Published var i = 0
+    
     var playerDuration: TimeInterval = 146
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -39,6 +45,15 @@ class AudioGobalVaribles: ObservableObject {
                 audioPlayer?.play()
                 isPlaying = true
             }
+            
+            if isPlaying == true && audioPlayer != nil {
+                audioPlayer = nil
+                isPlaying = false
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+                isPlaying = true
+            }
         } catch {
             //加载文件失败，这里用于防止应用程序崩溃
             print("音频文件出现问题")
@@ -59,6 +74,23 @@ class AudioGobalVaribles: ObservableObject {
             isPlaying = false
             playValue = 0.0
         }
+    }
+    
+    func playNext() {
+        isPlaying = false
+        i -= 1
+        if i < 0{
+            i = playlist.count-1
+        }
+        
+        isPlaying = true
+    }
+    func playPrevious() {
+        i += 1
+        if i > playlist.count-1{
+            i = 0
+        }
+        
     }
     
     func changeSliderValue() {
