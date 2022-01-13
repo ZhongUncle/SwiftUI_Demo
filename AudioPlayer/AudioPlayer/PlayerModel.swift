@@ -25,9 +25,9 @@ class AudioGobalVaribles: ObservableObject {
     @Published var audioName: String = playlist[i].name
     @Published var audioFormat: String = playlist[i].format
     @Published var isPlaying: Bool = false
+    @Published var showAudioList: Bool = false
     @Published var playValue: TimeInterval = 0.0
-    
-    var playerDuration: TimeInterval = 146
+    var playerDuration: TimeInterval = 100
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     func playAudio(forResource: String, ofType: String) {
@@ -36,8 +36,8 @@ class AudioGobalVaribles: ObservableObject {
         //定义url
         let url = URL(fileURLWithPath: path)
         do {
-            //尝试使用预设的声音播放器获取目标文件
             if isPlaying == false && audioPlayer == nil {
+                //尝试使用预设的声音播放器获取目标文件
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
@@ -46,6 +46,14 @@ class AudioGobalVaribles: ObservableObject {
             
             if isPlaying == false {
                 //播放声音————停止的话使用stop()方法
+                audioPlayer?.play()
+                isPlaying = true
+            }
+            
+            if isPlaying == true && audioPlayer != nil {
+                //尝试使用预设的声音播放器获取目标文件
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
                 isPlaying = true
             }
@@ -77,12 +85,13 @@ class AudioGobalVaribles: ObservableObject {
         }else{
             i = playlist.count-1
         }
+        audioName = playlist[i].name
+        audioFormat = playlist[i].format
         //定义路径
-        let path = Bundle.main.path(forResource: playlist[i].name, ofType: playlist[i].format)!
+        let path = Bundle.main.path(forResource: audioName, ofType: audioFormat)!
         //定义url
         let url = URL(fileURLWithPath: path)
         do {
-            
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
@@ -100,12 +109,13 @@ class AudioGobalVaribles: ObservableObject {
         }else{
             i = 0
         }
+        audioName = playlist[i].name
+        audioFormat = playlist[i].format
         //定义路径
-        let path = Bundle.main.path(forResource: playlist[i].name, ofType: playlist[i].format)!
+        let path = Bundle.main.path(forResource: audioName, ofType: audioFormat)!
         //定义url
         let url = URL(fileURLWithPath: path)
         do {
-            
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
