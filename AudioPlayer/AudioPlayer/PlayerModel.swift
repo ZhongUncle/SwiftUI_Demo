@@ -12,6 +12,7 @@ let playlist: [String] = ["马马嘟嘟骑", "Snow-Red Hot Chilli Pepper"]
 
 let player = AVPlayer()
 
+
 class AudioGobalVaribles: ObservableObject {
     @Published var audioName: String = playlist[0]
     @Published var audioType: String = "m4a"
@@ -19,12 +20,11 @@ class AudioGobalVaribles: ObservableObject {
     @Published var isPlaying: Bool = false
     @Published var playValue: TimeInterval = 0.0
     @Published var i = 0
+    //预先创建一个播放器
+    var audioPlayer: AVAudioPlayer?
     
     var playerDuration: TimeInterval = 146
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    //预先创建一个播放器
-    var audioPlayer: AVAudioPlayer?
 
     func playAudio(forResource: String, ofType: String) {
         //定义路径
@@ -42,15 +42,6 @@ class AudioGobalVaribles: ObservableObject {
             
             if isPlaying == false {
                 //播放声音————停止的话使用stop()方法
-                audioPlayer?.play()
-                isPlaying = true
-            }
-            
-            if isPlaying == true && audioPlayer != nil {
-                audioPlayer = nil
-                isPlaying = false
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
                 isPlaying = true
             }
@@ -76,19 +67,47 @@ class AudioGobalVaribles: ObservableObject {
         }
     }
     
-    func playNext() {
-        isPlaying = false
-        i -= 1
-        if i < 0{
-            i = playlist.count-1
-        }
-        
-        isPlaying = true
-    }
     func playPrevious() {
         i += 1
         if i > playlist.count-1{
             i = 0
+        }
+        do {
+            audioName = playlist[i]
+            //定义路径
+            let path = Bundle.main.path(forResource: audioName, ofType: audioType)!
+            //定义url
+            let url = URL(fileURLWithPath: path)
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+            isPlaying = true
+        } catch {
+            //加载文件失败，这里用于防止应用程序崩溃
+            print("音频文件出现问题")
+        }
+        
+    }
+    
+    func playNext() {
+//        audioPlayer = nil
+        i += 1
+        if i > playlist.count-1{
+            i = 0
+        }
+        do {
+            audioName = playlist[i]
+            //定义路径
+            let path = Bundle.main.path(forResource: audioName, ofType: audioType)!
+            //定义url
+            let url = URL(fileURLWithPath: path)
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+            isPlaying = true
+        } catch {
+            //加载文件失败，这里用于防止应用程序崩溃
+            print("音频文件出现问题")
         }
         
     }

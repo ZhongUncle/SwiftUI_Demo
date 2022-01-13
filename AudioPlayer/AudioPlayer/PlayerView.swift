@@ -9,30 +9,9 @@ import SwiftUI
 import AVKit
 import Combine
 
-struct PlayButtonView: View {
-//    var audioName: String
-//    var audioType: String
-    @ObservedObject var audioGobalVaribles = AudioGobalVaribles()
-    
-    var body: some View {
-        Button(action: {
-            if audioGobalVaribles.isPlaying {
-                audioGobalVaribles.pauseAudio()
-            }else{
-                //The audio need add Target Membership to project
-                audioGobalVaribles.playAudio(forResource: playlist[audioGobalVaribles.i], ofType: audioGobalVaribles.audioType)
-                self.audioGobalVaribles.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-            }
-        }, label: {
-            Image(systemName: (audioGobalVaribles.isPlaying) ? "pause.fill" : "play.fill")
-                .font(.title)
-        })
-            .padding()
-    }
-}
-
 struct PlayerView: View {
     @ObservedObject var audioGobalVaribles = AudioGobalVaribles()
+    @State private var test = false
     
     var body: some View {
         HStack {
@@ -41,21 +20,29 @@ struct PlayerView: View {
                 if audioGobalVaribles.i < 0{
                     audioGobalVaribles.i = playlist.count-1
                 }
-                audioGobalVaribles.playAudio(forResource: playlist[audioGobalVaribles.i], ofType: audioGobalVaribles.audioType)
+                
             }, label: {
                 Image(systemName: "backward.fill")
                     .font(.title3)
             })
 
-//            PlayButtonView(audioName: playlist[audioGobalVaribles.i], audioType: audioGobalVaribles.audioType)
-            PlayButtonView()
+            Button(action: {
+//                if audioGobalVaribles.isPlaying == true {
+//                    audioGobalVaribles.pauseAudio()
+//                }else{
+//                    //The audio need add Target Membership to project
+//                    audioGobalVaribles.playAudio(forResource: playlist[audioGobalVaribles.i], ofType: audioGobalVaribles.audioType)
+//                    audioGobalVaribles.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//                }
+                audioGobalVaribles.isPlaying = !audioGobalVaribles.isPlaying
+            }, label: {
+                Image(systemName: (audioGobalVaribles.isPlaying) ? "pause.fill" : "play.fill")
+                    .font(.title)
+            })
+                .padding()
             
             Button(action: {
-                audioGobalVaribles.i += 1
-                if audioGobalVaribles.i > playlist.count-1{
-                    audioGobalVaribles.i = 0
-                }
-                audioGobalVaribles.playAudio(forResource: playlist[audioGobalVaribles.i], ofType: audioGobalVaribles.audioType)
+                audioGobalVaribles.playNext()
             }, label: {
                 Image(systemName: "forward.fill")
                     .font(.title3)

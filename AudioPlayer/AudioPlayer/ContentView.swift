@@ -42,16 +42,13 @@ struct ContentView: View {
                     })
                         .accentColor(Color.gray)
                         .onReceive(audioGobalVaribles.timer) { _ in
-                            
                             if audioGobalVaribles.isPlaying {
                                 if let currentTime = audioGobalVaribles.audioPlayer?.currentTime {
                                     audioGobalVaribles.playValue = currentTime
-                                    
                                     if currentTime == TimeInterval(0.0) {
                                         audioGobalVaribles.isPlaying = false
                                     }
                                 }
-                                
                             }
                             else {
                                 audioGobalVaribles.isPlaying = false
