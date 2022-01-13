@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6220C0B7278D72B800823355 /* Snow-Red Hot Chilli Pepper.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6220C0B6278D72B800823355 /* Snow-Red Hot Chilli Pepper.m4a */; };
+		6220C0B7278D72B800823355 /* Snow.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6220C0B6278D72B800823355 /* Snow.m4a */; };
 		6220C0B9278D769A00823355 /* MusicCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220C0B8278D769A00823355 /* MusicCoverView.swift */; };
+		628C7B7A27907A6A0052AAAD /* Stay Gold.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 628C7B7927907A6A0052AAAD /* Stay Gold.m4a */; };
 		62BD7917278D6BED002544C7 /* AudioPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD7916278D6BED002544C7 /* AudioPlayerApp.swift */; };
 		62BD7919278D6BED002544C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD7918278D6BED002544C7 /* ContentView.swift */; };
 		62BD791B278D6BEE002544C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62BD791A278D6BEE002544C7 /* Assets.xcassets */; };
 		62BD791E278D6BEE002544C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62BD791D278D6BEE002544C7 /* Preview Assets.xcassets */; };
 		62BD7928278D6DF0002544C7 /* 马马嘟嘟骑.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 62BD7924278D6D29002544C7 /* 马马嘟嘟骑.m4a */; };
-		62BD792A278D6F79002544C7 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD7929278D6F79002544C7 /* PlayerView.swift */; };
 		62BD792C278D6F8B002544C7 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD792B278D6F8B002544C7 /* PlayerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6220C0B6278D72B800823355 /* Snow-Red Hot Chilli Pepper.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Snow-Red Hot Chilli Pepper.m4a"; sourceTree = "<group>"; };
+		6220C0B6278D72B800823355 /* Snow.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Snow.m4a; sourceTree = "<group>"; };
 		6220C0B8278D769A00823355 /* MusicCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCoverView.swift; sourceTree = "<group>"; };
+		628C7B7927907A6A0052AAAD /* Stay Gold.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stay Gold.m4a"; sourceTree = "<group>"; };
 		62BD7913278D6BED002544C7 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62BD7916278D6BED002544C7 /* AudioPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerApp.swift; sourceTree = "<group>"; };
 		62BD7918278D6BED002544C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62BD791A278D6BEE002544C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62BD791D278D6BEE002544C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62BD7924278D6D29002544C7 /* 马马嘟嘟骑.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "马马嘟嘟骑.m4a"; sourceTree = "<group>"; };
-		62BD7929278D6F79002544C7 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		62BD792B278D6F8B002544C7 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,6 @@
 			children = (
 				62BD7916278D6BED002544C7 /* AudioPlayerApp.swift */,
 				62BD7918278D6BED002544C7 /* ContentView.swift */,
-				62BD7929278D6F79002544C7 /* PlayerView.swift */,
 				6220C0B8278D769A00823355 /* MusicCoverView.swift */,
 				62BD792B278D6F8B002544C7 /* PlayerModel.swift */,
 				62BD791A278D6BEE002544C7 /* Assets.xcassets */,
@@ -85,7 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				62BD7924278D6D29002544C7 /* 马马嘟嘟骑.m4a */,
-				6220C0B6278D72B800823355 /* Snow-Red Hot Chilli Pepper.m4a */,
+				6220C0B6278D72B800823355 /* Snow.m4a */,
+				628C7B7927907A6A0052AAAD /* Stay Gold.m4a */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -150,8 +150,9 @@
 			files = (
 				62BD7928278D6DF0002544C7 /* 马马嘟嘟骑.m4a in Resources */,
 				62BD791E278D6BEE002544C7 /* Preview Assets.xcassets in Resources */,
-				6220C0B7278D72B800823355 /* Snow-Red Hot Chilli Pepper.m4a in Resources */,
+				6220C0B7278D72B800823355 /* Snow.m4a in Resources */,
 				62BD791B278D6BEE002544C7 /* Assets.xcassets in Resources */,
+				628C7B7A27907A6A0052AAAD /* Stay Gold.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +163,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62BD792A278D6F79002544C7 /* PlayerView.swift in Sources */,
 				62BD7919278D6BED002544C7 /* ContentView.swift in Sources */,
 				6220C0B9278D769A00823355 /* MusicCoverView.swift in Sources */,
 				62BD792C278D6F8B002544C7 /* PlayerModel.swift in Sources */,

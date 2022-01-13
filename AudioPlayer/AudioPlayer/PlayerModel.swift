@@ -15,19 +15,17 @@ struct AudioItems: Identifiable{
     var format: String
 }
 var i: Int = 0
-let playlist: [AudioItems] = [AudioItems(name: "马马嘟嘟骑", author: "一格", format: "m4a"), AudioItems(name: "Snow", author: "Red Hot Chilli Pepper", format: "m4a")]
+let playlist: [AudioItems] = [AudioItems(name: "马马嘟嘟骑", author: "一格", format: "m4a"), AudioItems(name: "Snow", author: "Red Hot Chilli Pepper", format: "m4a"), AudioItems(name: "Stay Gold", author: "一格Yige（cover.宇多田光）", format: "m4a")]
 
 let player = AVPlayer()
+//预先创建一个播放器
+var audioPlayer: AVAudioPlayer?
 
 class AudioGobalVaribles: ObservableObject {
     @Published var audioName: String = playlist[i].name
-    @Published var audioType: String = "m4a"
-    @Published var audioCreater: String = "Unknown"
+    @Published var audioFormat: String = playlist[i].format
     @Published var isPlaying: Bool = false
     @Published var playValue: TimeInterval = 0.0
-//    @Published var i = 0
-    //预先创建一个播放器
-    var audioPlayer: AVAudioPlayer?
     
     var playerDuration: TimeInterval = 146
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -74,18 +72,17 @@ class AudioGobalVaribles: ObservableObject {
     }
     
     func playPrevious() {
-
         if i > 0{
             i -= 1
         }else{
             i = playlist.count-1
         }
+        //定义路径
+        let path = Bundle.main.path(forResource: playlist[i].name, ofType: playlist[i].format)!
+        //定义url
+        let url = URL(fileURLWithPath: path)
         do {
-            audioName = playlist[i].name
-            //定义路径
-            let path = Bundle.main.path(forResource: audioName, ofType: audioType)!
-            //定义url
-            let url = URL(fileURLWithPath: path)
+            
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
@@ -99,15 +96,16 @@ class AudioGobalVaribles: ObservableObject {
     
     func playNext() {
         if i < playlist.count-1{
-            i += 1
+            i = i + 1
         }else{
             i = 0
         }
+        //定义路径
+        let path = Bundle.main.path(forResource: playlist[i].name, ofType: playlist[i].format)!
+        //定义url
+        let url = URL(fileURLWithPath: path)
         do {
-            //定义路径
-            let path = Bundle.main.path(forResource: audioName, ofType: audioType)!
-            //定义url
-            let url = URL(fileURLWithPath: path)
+            
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
