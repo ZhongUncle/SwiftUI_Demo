@@ -23,3 +23,8 @@ This demo show you some informations about the device, such as name, IP address,
 This demo show you how to control some functions of device, like brightness, volume, haptic and etc. The screen like below.
 
 ![截屏2022-01-11 下午3 25 06](https://user-images.githubusercontent.com/78771985/148899389-54e88e7d-5ff2-45b6-803f-d2217ea80ce5.png)
+
+## AudioPlayer
+This demo show you how to play music ,switch them, and you can select the audio from the List. The screen like below.
+
+![截屏2022-01-14 上午12 22 10](https://user-images.githubusercontent.com/78771985/149383553-1f8b41b5-e269-4f51-b4e3-faeec5eef87d.png)
