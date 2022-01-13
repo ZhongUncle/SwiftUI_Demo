@@ -8,18 +8,24 @@
 import Foundation
 import AVFoundation
 
-let playlist: [String] = ["马马嘟嘟骑", "Snow-Red Hot Chilli Pepper"]
+struct AudioItems: Identifiable{
+    var id: UUID = UUID()
+    var name: String
+    var author: String
+    var format: String
+}
+var i: Int = 0
+let playlist: [AudioItems] = [AudioItems(name: "马马嘟嘟骑", author: "一格", format: "m4a"), AudioItems(name: "Snow", author: "Red Hot Chilli Pepper", format: "m4a")]
 
 let player = AVPlayer()
 
-
 class AudioGobalVaribles: ObservableObject {
-    @Published var audioName: String = playlist[0]
+    @Published var audioName: String = playlist[i].name
     @Published var audioType: String = "m4a"
     @Published var audioCreater: String = "Unknown"
     @Published var isPlaying: Bool = false
     @Published var playValue: TimeInterval = 0.0
-    @Published var i = 0
+//    @Published var i = 0
     //预先创建一个播放器
     var audioPlayer: AVAudioPlayer?
     
@@ -68,12 +74,14 @@ class AudioGobalVaribles: ObservableObject {
     }
     
     func playPrevious() {
-        i += 1
-        if i > playlist.count-1{
-            i = 0
+
+        if i > 0{
+            i -= 1
+        }else{
+            i = playlist.count-1
         }
         do {
-            audioName = playlist[i]
+            audioName = playlist[i].name
             //定义路径
             let path = Bundle.main.path(forResource: audioName, ofType: audioType)!
             //定义url
@@ -90,13 +98,12 @@ class AudioGobalVaribles: ObservableObject {
     }
     
     func playNext() {
-//        audioPlayer = nil
-        i += 1
-        if i > playlist.count-1{
+        if i < playlist.count-1{
+            i += 1
+        }else{
             i = 0
         }
         do {
-            audioName = playlist[i]
             //定义路径
             let path = Bundle.main.path(forResource: audioName, ofType: audioType)!
             //定义url
@@ -109,7 +116,6 @@ class AudioGobalVaribles: ObservableObject {
             //加载文件失败，这里用于防止应用程序崩溃
             print("音频文件出现问题")
         }
-        
     }
     
     func changeSliderValue() {

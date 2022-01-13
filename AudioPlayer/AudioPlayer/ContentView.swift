@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 
@@ -15,19 +16,19 @@ struct ContentView: View {
     @State private var sliderTimeline = 0.0
     var body: some View {
         ZStack {
+            //Background
             Rectangle()
                 .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.1))
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                
+                //Music Cover
                 MusicCoverView()
-                
-                Text("\(audioGobalVaribles.audioName)")
+                Text("\(playlist[i].name)")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
-                Text("\(audioGobalVaribles.audioCreater)")
+                Text("\(playlist[i].author)")
                     .foregroundColor(.gray)
                     .padding(.top, -5.0)
                     
@@ -63,12 +64,45 @@ struct ContentView: View {
                 Spacer()
                 
                 ZStack {
-                    PlayerView()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: screenWidth, height: screenHeight*0.07)
-                                .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-                        )
+                    HStack {
+                        Text(playlist[i].name)
+                        //Play previous audio Button
+                        Button(action: {
+                            audioGobalVaribles.playPrevious()
+                        }, label: {
+                            Image(systemName: "backward.fill")
+                                .font(.title3)
+                        })
+
+                        //Play Button
+                        Button(action: {
+                            if audioGobalVaribles.isPlaying == true {
+                                audioGobalVaribles.pauseAudio()
+                            }else{
+                                /* The audio need add Target Membership to project */
+                                audioGobalVaribles.playAudio(forResource: playlist[i].name, ofType: playlist[i].format)
+                                audioGobalVaribles.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+                            }
+                        }, label: {
+                            Image(systemName: (audioGobalVaribles.isPlaying) ? "pause.fill" : "play.fill")
+                                .font(.title)
+                        })
+                            .padding()
+                        
+                        //Play next audio Button
+                        Button(action: {
+                            audioGobalVaribles.playNext()
+                        }, label: {
+                            Image(systemName: "forward.fill")
+                                .font(.title3)
+                        })
+                    }
+                    .foregroundColor(Color.pink)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: screenWidth, height: screenHeight*0.07)
+                            .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+                    )
                 }
             }
         }
