@@ -31,9 +31,5 @@ This demo show you how to play music ,switch them, and you can select the audio 
 
 ## Notifications
 This demo show you how to push notifications to user, or make a alarm, or change sound of notifications.
-<<<<<<< HEAD
-![NotificationsScreenshot](DemosScreenshots/NotificationsScreenshot.png)
-=======
 
 ![NotificationsScreenshot](https://user-images.githubusercontent.com/78771985/153161142-095a5eed-637d-4698-b528-dd90b3344543.png)
->>>>>>> 055224fd573ba4180cb55d0ac24b94c4e133b108
