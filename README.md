@@ -31,4 +31,4 @@ This demo show you how to play music ,switch them, and you can select the audio 
 
 ## Notifications
 This demo show you how to push notifications to user, or make a alarm, or change sound of notifications.
-![NotificationsScreenshot](SwiftUI_Demo/DemosScreenshots/NotificationsScreenshot.png)
+![NotificationsScreenshot](public/DemosScreenshots/NotificationsScreenshot.png)
