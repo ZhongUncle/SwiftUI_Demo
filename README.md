@@ -6,6 +6,8 @@ For convenient, there is a list of Demos in order.
 1. ***ImageModify:*** About how to add filiter to image.
 2. ***DeviceInfo:*** About how to access information of device.
 3. ***OperateDeviceFunctions:*** About how to control some device's functiions.
+4. ***AudioPlayer:*** A simple audio player.
+5. ***Notifications:*** About Notifications in SwiftUI and have a simple alarm.
 
 # Demos Info
 
@@ -30,6 +32,6 @@ This demo show you how to play music ,switch them, and you can select the audio 
 ![截屏2022-01-14 上午12 22 10](https://user-images.githubusercontent.com/78771985/149383553-1f8b41b5-e269-4f51-b4e3-faeec5eef87d.png)
 
 ## Notifications
-This demo show you how to push notifications to user, or make a alarm, or change sound of notifications.
+This demo show you how to push different notifications to users, or make a alarm, or change sound of notifications.
 
 ![NotificationsScreenshot](https://user-images.githubusercontent.com/78771985/153161142-095a5eed-637d-4698-b528-dd90b3344543.png)
