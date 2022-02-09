@@ -28,3 +28,7 @@ This demo show you how to control some functions of device, like brightness, vol
 This demo show you how to play music ,switch them, and you can select the audio from the List. The screen like below.
 
 ![截屏2022-01-14 上午12 22 10](https://user-images.githubusercontent.com/78771985/149383553-1f8b41b5-e269-4f51-b4e3-faeec5eef87d.png)
+
+## Notifications
+This demo show you how to push notifications to user, or make a alarm, or change sound of notifications.
+![NotificationsScreenshot](DemosScreenshots/NotificationsScreenshot)

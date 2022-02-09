@@ -39,11 +39,11 @@ func makeBasicNotification(){
 }
 
 //推送通知
-func makeAlarmNotification(){
+func makeAlarmNotification(hour: Int, minute: Int){
     //设置通知的时间：推送时间为6点30分
     var dateComponents = DateComponents()
-    dateComponents.hour = 6
-    dateComponents.minute = 30
+    dateComponents.hour = hour
+    dateComponents.minute = minute
     //这里最后让repeats为true表示每天的6点30分都会推送通知
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
     
@@ -61,26 +61,60 @@ func makeAlarmNotification(){
 }
 
 struct ContentView: View {
+    @State private var alarmDate = Date()
+    var calendar = Calendar.current
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Button(action: {
                 setNotification()
             }) {
                 Text("获取推送权限")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.pink)
                     .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.pink, lineWidth: 3)
+                    )
             }
+            .padding()
+            
             Button(action: {
-                makeAlarmNotification()
+                makeBasicNotification()
             }) {
                 Text("推送基础款通知")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.pink)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.pink, lineWidth: 3)
+                    )
+            }
+            .padding()
+            
+            HStack{
+                DatePicker(selection: $alarmDate, displayedComponents: .hourAndMinute, label: {
+                    HStack {
+                        Button(action: {
+                            let hour = calendar.component(.hour, from: alarmDate)
+                            let minute = calendar.component(.minute, from: alarmDate)
+                            
+                            makeAlarmNotification(hour: hour, minute: minute)
+                        }) {
+                            Text("推送定时闹钟型通知")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.pink)
+                        }
+                    }
+                })
                     .padding()
             }
-            Button(action: {
-                makeAlarmNotification()
-            }) {
-                Text("推送定时闹钟型通知")
-                    .padding()
-            }
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.pink, lineWidth: 3)
+            )
+            .padding()
         }
     }
 }
