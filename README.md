@@ -8,6 +8,7 @@ For convenient, there is a list of Demos in order.
 3. ***OperateDeviceFunctions:*** About how to control some device's functiions.
 4. ***AudioPlayer:*** A simple audio player.
 5. ***Notifications:*** About Notifications in SwiftUI and have a simple alarm.
+6. ***DealJson:*** About JSON file in SwiftUI.
 
 # Demos Info
 
