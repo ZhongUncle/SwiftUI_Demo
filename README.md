@@ -32,6 +32,13 @@ This demo show you how to play music ,switch them, and you can select the audio 
 ![截屏2022-01-14 上午12 22 10](https://user-images.githubusercontent.com/78771985/149383553-1f8b41b5-e269-4f51-b4e3-faeec5eef87d.png)
 
 ## Notifications
-This demo show you how to push different notifications to users, or make a alarm, or change sound of notifications.
+This demo show you how to push different notifications to users, or make a alarm, or change sound of notifications. The screen like below.
 
 ![NotificationsScreenshot](https://user-images.githubusercontent.com/78771985/153161142-095a5eed-637d-4698-b528-dd90b3344543.png)
+
+## DealJson
+This demo show you how to deal with JSON from HTTP or local. The screen like below.
+
+![截屏2022-02-11 上午12 55 36](https://user-images.githubusercontent.com/78771985/153459719-6157f614-dc3c-4c9a-b920-e98f83eb80ec.png)
+
+
