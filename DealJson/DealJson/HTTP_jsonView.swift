@@ -19,17 +19,15 @@ struct HTTP_jsonView: View {
     @State private var jokes: Joke = Joke(id: "", joke: "", status: 0)
 
     var body: some View {
-        VStack {
-            Button("获取") {
+        VStack(alignment: .leading) {
+            Button("刷新") {
                 getJoke()
             }
-            VStack(alignment: .leading) {
-                Text(jokes.joke)
-            }
-            .onAppear(perform: {
-                //界面出现的时候加载数据
-                getJoke()
-            })
+            Text(jokes.joke)
+                .onAppear(perform: {
+                    //界面出现的时候加载数据
+                    getJoke()
+                })
         }
     }
     

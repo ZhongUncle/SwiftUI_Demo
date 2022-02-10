@@ -9,8 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text("本地 JSON 生成的动物介绍")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.pink)
+                    .padding([.top, .trailing])
+                LocalJSONView()
+                
+                Text("HTTP JSON 获取的英文笑话")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.pink)
+                    .padding([.top, .trailing])
+                HTTP_jsonView()
+            }
+            .padding(.horizontal)
+        }
     }
 }
 

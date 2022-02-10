@@ -19,7 +19,7 @@ struct LocalJSONView: View {
     @State private var animals: [Animal] = [Animal(id: 0, name: "", age: 0, type: "")]
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ForEach(animals) { animal in
                     Text("\(animal.name) is a \(animal.type) and is \(animal.age) years old.")
             }
